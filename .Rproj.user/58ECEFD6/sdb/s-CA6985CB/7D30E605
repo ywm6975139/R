@@ -1,0 +1,28 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1462605960161.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "7D30E605",
+    "lastKnownWriteTime" : 6,
+    "last_content_update" : -2147483648,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "5kosqi7xlz",
+        "caption" : "zscoredata",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=zscoredata&cache_key=5kosqi7xlz",
+        "displayedObservations" : 62044,
+        "environment" : "",
+        "object" : "zscoredata",
+        "totalObservations" : 62044,
+        "variables" : 5
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

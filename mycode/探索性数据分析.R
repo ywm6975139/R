@@ -1,0 +1,111 @@
+MS<-read.table("D:\\data\\学生成绩单.txt",header = TRUE)
+##制作茎叶图观察样本数据的总体
+stem(MS$maths)
+stem(MS$stats)
+##建立具有探索性数据分析的函数，直方图，点图，箱线图，正态概率图
+EDA<-function(x)
+{
+  par(mfrow=c(2,2))
+  hist(x)
+  dotchart(x)
+  boxplot(x,horizontal = T)
+  qqnorm(x);qqline(x)
+  par(mfrow=c(1,1))
+}
+EDA(MS$maths)
+EDA(MS$stats)
+##三种对称分布
+##均匀分布
+x<-runif(1000);EDA(x)
+##正态分布
+x<-rnorm(1000,10);EDA(x)
+##T分布
+x<-rt(1000,10);EDA(x)
+##三种偏态分布
+##偏态分布
+##F分布
+x<-rf(100,10,10);EDA(x)
+##半正态分布
+x<-abs(rnorm(200));EDA(x)
+##偏态指数分布
+x<-rexp(200);EDA(x)
+##示例
+pay=c(11,19,14,22,14,28,12,81,12,43,11,16,31,16,31,16,23,37,35,39,27,14,17,
+      42,22,26,17,22,13,27,108,16,43,82,14,11,51,76,28,65,29,14,14,65,37,15,
+      38,28,13,40,85,32,25,26,16,12,54,40,18,27,16,14,
+      33,29,77,50,19,34)
+EDA(pay)
+log.pay<-log10(pay)
+EDA(log.pay)
+
+##单变量数据分析
+x=c("是”，“否”，“否”，“是”，“是”，“否”，“否”，“否”，“是”，“是")
+table(x)
+drink=c(3,4,1,1,3,4,3,3,1,3,2,1,2,1,2,3,1,1,1,1,4,3,1)
+barplot(table(drink))
+barplot(table(drink)/length(drink),col = c("red","yellow","blue","white"))
+salary=c(2000,2100,2200,2300,2350,2450,2500,2700,2900,2850,3500,3800,2600,
+         3000,3300,3200,4000,3100,4200)
+mean(salary)
+median(salary)
+var(salary)
+sd(salary)
+fivenum(salary)
+summary(salary)
+##长尾数据和异常值数据的描述
+salarym<-c(salary,15000)
+mean(salarym)
+median(salarym)
+mean(salarym,trim = 0.2)
+IQR(salarym)
+mad(salarym)
+stem(salary)
+stem(salarym)
+##对数值的数据进行分组
+salaryg<-cut(salary,breaks=c(2000,3000,4000,max(salary)))
+table(salaryg)
+##多变量数据分析
+smoke=c("Y","N","N","Y","N","Y","Y","N","Y","N")
+study=c("<5h","5-10h","5-10h","<5h",">10h","<5h","5-10h","<5h","<5h","5-10h")
+##建立抽烟与学习的二维表
+tab<-table(smoke,study)
+prop.table(tab,1)#prop.table离散型变量的边缘概率，1是行
+prop.table(tab,2)#列
+prop.table(tab)#联合分布律
+prop=function(x) x/sum(x)
+apply(tab,2,prop)
+t(apply(tab,2,prop))
+t(apply(tab,1,prop))
+##利用条形图
+par(mfrow=c(1,2))
+barplot(table(smoke,study))
+barplot(table(study,smoke))
+install.packages("MASS")
+library(MASS)
+data("Cars93")
+names(Cars93)
+attach(Cars93)
+price<-cut(Price,c(0,1,20,max(Price)))
+levels(price)<-c("cheap","okay","expensive")
+mpg<-cut(MPG.highway,c(0,20,30,max(MPG.highway)))
+levels(mpg)<-c("gas guzzier","oky","mister")
+table(Type)
+table(price,Type)
+table(price,Type,mpg)
+##复式条形图
+barplot(table(price,Type))
+barplot(table(price,Type),beside = T)
+##利用散点图：鸢尾花案例
+iris
+levels(iris$Species)
+iris.lab<-rep(c("1","2","3"),rep(50,3))
+par(mfrow=c(1,2))
+plot(iris[,1],iris[,3],type="n")
+text(iris[,1],iris[,3],cex=0.6)
+plot(iris[,1],iris[,3],type="n")
+text(iris[,1],iris[,3],iris.lab,cex=0.7)
+##矩阵式散点图
+par(mfrow=c(1,1))
+pairs(iris)
+
+

@@ -1,0 +1,28 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1462605946783.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "BC0E5FF5",
+    "lastKnownWriteTime" : 6,
+    "last_content_update" : -2147483648,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "q1pj1ei04e",
+        "caption" : "air_data",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=air_data&cache_key=q1pj1ei04e",
+        "displayedObservations" : "62988",
+        "environment" : "",
+        "object" : "air_data",
+        "totalObservations" : "62988",
+        "variables" : "44"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}
